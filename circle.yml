@@ -3,12 +3,12 @@ machine:
     - docker
 dependencies:
   cache_directories:
-    - "~/docker-telegraf"
+    - "~/docker-postgresql"
   override:
     - docker info
-    - if [[ -e ~/docker-telegraf/image.tar ]]; then docker load --input ~/docker-telegraf/image.tar; fi
-    - docker build -t bbailey/telegraf .
-    - mkdir -p ~/docker-telegraf; docker save --output ~/docker-telegraf/image.tar bbailey/telegraf
+    - if [[ -e ~/docker-postgresql/image.tar ]]; then docker load --input ~/docker-postgresql/image.tar; fi
+    - docker build -t bbailey/postgresql .
+    - mkdir -p ~/docker-postgresql; docker save --output ~/docker-postgresql/image.tar bbailey/postgresql
 test:
   override:  
-    - docker run -d bbailey/telegraf test -e /opt/telegraf/telegraf
+    - docker run -d bbailey/postgresql test -e /usr/bin/postgres
