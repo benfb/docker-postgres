@@ -3,12 +3,12 @@ machine:
     - docker
 dependencies:
   cache_directories:
-    - "~/docker-postgresql"
+    - "~/docker-postgres"
   override:
     - docker info
-    - if [[ -e ~/docker-postgresql/image.tar ]]; then docker load --input ~/docker-postgresql/image.tar; fi
-    - docker build -t bbailey/postgresql .
-    - mkdir -p ~/docker-postgresql; docker save --output ~/docker-postgresql/image.tar bbailey/postgresql
+    - if [[ -e ~/docker-postgres/image.tar ]]; then docker load --input ~/docker-postgres/image.tar; fi
+    - docker build -t bbailey/postgres .
+    - mkdir -p ~/docker-postgres; docker save --output ~/docker-postgres/image.tar bbailey/postgres
 test:
   override:  
-    - docker run -d bbailey/postgresql test -e /usr/bin/postgres
+    - docker run -d bbailey/postgres test -e /usr/bin/postgres
