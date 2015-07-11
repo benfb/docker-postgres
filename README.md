@@ -4,5 +4,7 @@
 alpine-based postgresql image for docker
 
 ## Why Alpine?
-`postgres               latest              c0ee64808866        3 days ago          265.5 MB`
-`bbailey/postgresql     latest              0f7f21a80938        12 hours ago        28.86 MB`
+```
+postgres               latest              c0ee64808866        3 days ago          265.5 MB
+bbailey/postgresql     latest              0f7f21a80938        12 hours ago        28.86 MB
+```
